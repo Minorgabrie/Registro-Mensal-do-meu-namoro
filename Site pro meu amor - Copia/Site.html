@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz 3 Meses de Namoro</title>
+    <style>
+        body {
+            background-color: #f0e68c; /* Amarelo */
+            color: #800080; /* Roxo */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+        .photo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .photo:hover {
+            transform: scale(1.1);
+        }
+        .description {
+            text-align: center;
+            margin-top: 10px;
+            color: #800080; /* Roxo */
+        }
+        @media (max-width: 768px) {
+            .photo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .modal-content img {
+            max-width: 50%;
+            border-radius: 10px;
+        }
+        .modal-description {
+            margin-left: 20px;
+            color: #800080; /* Roxo */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music" src="eu_amo_voce_menina.mp3" autoplay loop></audio>
+    <div class="container">
+        <h1>Feliz 3 Meses de Namoro</h1>
+        <div class="section">
+            <h2>Nossos Momentos</h2>
+            <div class="photo-grid">
+                <div class="photo" onclick="openModal('foto1.jpg', 'Que dia hein... Mesmo você falando que não gostava nem um pouco do seu Aniversario, fiquei tão feliz quando vi que você estava rindo de tudo e se divertindo tanto. Confesso que nossos beijos nesse dia estavam incriveis', 'musica1.mp3')">
+                    <img src="foto1.jpg" alt="Foto 1">
+                    <div class="description">Aniversario</div>
+                </div>
+                <div class="photo" onclick="openModal('foto2.jpg', 'ORRA... QUE DIA PRA SE BEIJAR EIN. Cacete foi maravilhoso passar literal um dia inteiro ao seu lado, te beijando, te abraçando, te cheirando... E principalmente te amando muito. Foi um dia quase perfeito, seus olhos brilhavam mais do que o sol e sua risada me deixava inebriado e loucamente apaixonado por ti', 'musica2.mp3')">
+                    <img src="foto2.jpg" alt="Foto 2">
+                    <div class="description">Casa do vovô</div>
+                </div>
+                </div>
+                <div class="photo" onclick="openModal('foto22.jpg', 'Bom... Neste ultimo dia que você esteve aqui, creio que eu poderia ter aproveitado muito mais, porém foi maravilhoso enquanto você ainda estava aqui. Amo demais você e espero que você volte o quanto antes meu amor. FALTAM 15 DIAAAAAAAAAAAAAAS', 'musica5.mp3')">
+                    <img src="foto22.jpg" alt="Foto 22">
+                    <div class="description">Ultima noite...</noite></div>
+                </div>
+               
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Nossas Primeiras Vezes</h2>
+            <div class="photo-grid">
+                <div class="photo" onclick="openModal('foto3.jpg', 'Quem diria que quando nos encontrassemos pela primeira vez tivessemos essa conexão tão incrível que tivemos. Amei passsar cada segundo ao seu lado, desde o momento em que estive ao seu lado pela primeira vez.', 'musica3.mp3')">
+                    <img src="foto3.jpg" alt="Foto 3">
+                    <div class="description">Primeira vez que nos encontramos</div>
+                </div>
+                <div class="photo" onclick="openModal('foto4.jpg', 'É e pensar que você estava tão insegura de me beijar de verdade, que, quando nos beijamos nunca mais paramos.', 'musica4.mp3')">
+                    <img src="foto4.jpg" alt="Foto 4">
+                    <div class="description">Primeiro beijo</div>
+                </div>
+                <div class="photo" onclick="openModal('foto5.jpg', 'Esse primeiro mês foi realmente incrível, passei cada dia deste primeiro mês amando ainda mais você. Até hoje hehehehe', 'musica5.mp3')">
+                    <img src="foto5.jpg" alt="Foto 5">
+                    <div class="description">Primeiro mês</div>
+                </div>
+                <div class="photo" onclick="openModal('foto6.jpg', 'Eu sempre fui inseguro com ir à lugares cheios como shoppings, mas ir contigo tornou tudo tão mais leve, foi um dia maravilhoso hihiihhi', 'musica6.mp3')">
+                    <img src="foto6.jpg" alt="Foto 6">
+                    <div class="description">Primeira vez que saímos</div>
+                </div>
+                <div class="photo" onclick="openModal('foto7.jpg', 'Olha... NÃO ME ARREPENDO NEM UM POUCO DE TER QUEBRADO A CAMA E CONTINUADO NO CHÃO... Amei te fazer ...  3 vezes logo de primeira heheheh', 'musica7.mp3')">
+                    <img src="foto7.jpg" alt="Foto 7">
+                    <div class="description">Primeira vez que... hehehehe</div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Nosso Crescimento Até Agora</h2>            <p>Desde que te vi pela primeira vez, passei a ser louco por ti. Corri atrás de saber quem você era desde o começo, mesmo quando você tentava me afastar. Mas, caramba, a melhor decisão da minha vida foi ter insistido em você. Desde o momento em que ficamos juntos pela primeira vez, me peguei admirando cada detalhe seu: desde sua entrada triunfal até quando você estava fumando enquanto estava sentada no meu colo. Você se tornou meu maior foco de atenção, e desde aquele dia, passei a querer te ver ainda mais.
+
+                Lembro-me do nosso primeiro beijo: meu coração quase pulou da boca, o ambiente parou e eu senti cada movimento, cada toque, cada sabor. Amei cada sensação e sentimento que esse beijo me trouxe. E em todos os outros beijos, esses sentimentos só aumentaram.
+                
+                Quando você me chamou para conhecer seu pai, fiquei tão feliz. Fiz de tudo para que esse dia se tornasse especial também. Resolvi te pedir em namoro o quanto antes, pois eu queria te chamar de minha mulher/meu homem e te dizer pela primeira vez: eu te amo.
+                
+                Daí em diante, creio que foram aqueles três primeiros meses que todos falam, mas, ao meu ver, foram fantásticos. Cada dia que passei contigo foi uma alegria imensa: cada toque, cada momento, cada risada. Mesmo com os problemas familiares de cada um, sempre conseguimos nos reconfortar mutuamente. Amo você com toda a minha alma e quero passar o resto da minha vida contigo. Este texto ainda está um pouco breve, e o site não está completo, mas mesmo assim, quero entregá-lo a você o quanto antes para que sempre se lembre de cada momento nosso</p>
+
+        </div>
+        <div class="section">
+            <h2>Nossa Galeria</h2>
+            <div class="photo-grid">
+                <div class="photo" onclick="openModal('foto5.jpg', 'Descrição da Foto 5', 'musica5.mp3')">
+                    <img src="foto50.jpg" alt="Foto 5">
+                </div>
+                <div class="photo" onclick="openModal('foto6.jpg', 'Descrição da Foto 6', 'musica6.mp3')">
+                    <img src="foto60.jpg" alt="Foto 6">
+                </div>
+                <div class="photo" onclick="openModal('foto7.jpg', 'Descrição da Foto 7', 'musica7.mp3')">
+                    <img src="foto70.jpg" alt="Foto 7">
+                </div>
+                <div class="photo" onclick="openModal('foto8.jpg', 'Descrição da Foto 8', 'musica8.mp3')">
+                    <img src="foto8.jpg" alt="Foto 8">
+                </div>
+                <div class="photo" onclick="openModal('foto9.jpg', 'Descrição da Foto 9', 'musica9.mp3')">
+                    <img src="foto9.jpg" alt="Foto 9">
+                </div>
+                <div class="photo" onclick="openModal('foto10.jpg', 'Descrição da Foto 10', 'musica10.mp3')">
+                    <img src="foto10.jpg" alt="Foto 10">
+                </div>
+                <div class="photo" onclick="openModal('foto11.jpg', 'Descrição da Foto 11', 'musica11.mp3')">
+                    <img src="foto11.jpg" alt="Foto 11">
+                </div>
+                <div class="photo" onclick="openModal('foto12.jpg', 'Descrição da Foto 12', 'musica12.mp3')">
+                    <img src="foto12.jpg" alt="Foto 12">
+                </div>
+                <div class="photo" onclick="openModal('foto13.jpg', 'Descrição da Foto 13', 'musica13.mp3')">
+                    <img src="foto13.jpg" alt="Foto 13">
+                </div>
+                <div class="photo" onclick="openModal('foto13.jpg', 'Descrição da Foto 13', 'musica13.mp3')">
+
+                    <img src="foto14.jpg" alt="Foto 13">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <img id="modal-img" src="" alt="Foto Ampliada">
+            <div class="modal-description" id="modal-description"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentAudio = null;
+        const backgroundMusic = document.getElementById('background-music');
+
+        function playMusic(musicFile) {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            backgroundMusic.pause();
+            backgroundMusic.currentTime = 0;
+            currentAudio = new Audio(musicFile);
+            currentAudio.play();
+        }
+
+        function openModal(imgSrc, description, musicFile) {
+            playMusic(musicFile);
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('modal-description').innerText = description;
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        function closeModal() {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            backgroundMusic.play();
+            document.getElementById('myModal').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
